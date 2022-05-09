@@ -20,6 +20,7 @@ const arhcerClass = new Player("Archer",200,0,200,100)
 const warrior=()=>{
     $(".page2").hide()
     $(".page3").show()
+    
 }
 
 const showPage2=()=>{
