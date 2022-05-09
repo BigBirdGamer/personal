@@ -72,3 +72,6 @@ $("#run").on("click", running);
 // equip uneqiup items from shop
 // skills /spells for enemy and player
 // warrior / mage / archer
+
+
+////// testibng
