@@ -6,21 +6,23 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   </head>
   <body>
-    <script type="module" src="/main.js"></script>
-    <div class="header">
-      <p>Let's play play</p>
-      <h2>Choose your class!</h2>
+    <script type="module" src="js/main.js"></script>
+
+    <div class="page1">
+      <h1><button id = "startButton">Start Adventure</button></h1>
+ 
     </div>
   
-    <div class="interface">
+    <div class="page2">
+      <h2>Choose your class!</h2>
       <a href="#" id="link1">
-        <img src="images/warrior.png" alt="warrior">
+        <img src="images/warrior.png" alt="Warrior">
         <div>
           <p>Warriors have higher health and stamina but their strength makes them slower.</p>
         </div>
       </a>
       <a href="#" id="link2">
-        <img src="images/assasin.png" alt="assasin">
+        <img src="images/assasin.png" alt="Assasin">
         <div>
           <p>Assasins are fast and agile but lack in strength and health.</p>
         </div>
@@ -37,6 +39,10 @@
           <p>Archers are well rounded classes with no particular strengths or weaknesses.</p>
         </div>
       </a>
+    </div>
+
+    <div class="page3">
+        <div id="warrior"></div>
     </div>
   
      <div class="actions"></div>
