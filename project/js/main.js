@@ -20,16 +20,16 @@ const arhcerClass = new Player("Archer",200,0,200,100)
 const warrior=()=>{
     $(".page2").hide()
     $(".page3").show()
-    $("#warrior").append(warriorClass)
 }
 
-const showOrHide=()=>{
+const showPage2=()=>{
     $(".page1").hide()
     $(".page2").show()
 }
 
 $(".page2").hide()
-$(".page1").on("click", showOrHide);
+$(".page3").hide()
+$(".page1").on("click", showPage2);
 $("#link1").on("click",warrior );
 $("#link2").on("click", );
 $("#link3").on("click", );
