@@ -66,10 +66,10 @@ frame();
 
 // PLAYER CLASSES
 const player = [
-  { name: "Warrior", hp: 100, mana: 50, attack: 100, defence: 100 },
-  { name: "Assasin", hp: 100, mana: 50, attack: 100, defence: 100 },
-  { name: "Wizard", hp: 100, mana: 50, attack: 100, defence: 100 },
-  { name: "Archer", hp: 100, mana: 50, attack: 100, defence: 100 },
+  { name: "Warrior", hp: 100, mana: 50, attack: 100, defence: 100, image: "/images/warrior.png" },
+  { name: "Assasin", hp: 100, mana: 50, attack: 100, defence: 100, image: "/images/assasin.png" },
+  { name: "Wizard", hp: 100, mana: 50, attack: 100, defence: 100,  image: "/images/wizard.png"  },
+  { name: "Archer", hp: 100, mana: 50, attack: 100, defence: 100, image: "/images/archer.png" },
 ];
 
 //ENEMY CLASSES
@@ -80,29 +80,39 @@ const enemy = [
   { name: "Archer", hp: 100, mana: 50, attack: 100, defence: 100, image: "/images/archer.png" },
 ];
 
-// let randomEnemy = enemy.math.floor(math.random())
+let randomEnemyName = enemy[Math.floor(Math.random()*4)]
 
 
 
 
 
 
-//WARRIOR CLASS
-const warrior = () => {
+//PLAYER CLASS
+const showClass = (num) => {
   $(".page2").hide();
   $(".page3").show();
 
   var img = document.createElement("img");
-  img.setAttribute("src", "/images/warrior.png");
+  img.setAttribute("src", `${player[num].image}`);
   $("#player").append(img);
-  $("#hp").text("Hp: " + player[0].hp);
-  $("#mana").text("Mana: " + player[0].mana);
-  $("#attack").text("Damage: " + player[0].attack);
-  $("#defence").text("Defense: " + player[0].defence);
-
-
-  
+  $("#hp").text("Hp: " + player[num].hp);
+  $("#mana").text("Mana: " + player[num].mana);
+  $("#attack").text("Damage: " + player[num].attack);
+  $("#defence").text("Defense: " + player[num].defence);
+ console.log(randomEnemyName.image) 
+  //ENEMY CLASS
+  var enemyImage = document.createElement("img");
+  enemyImage.setAttribute("src", randomEnemyName.image);
+  $("#enemy").append(enemyImage)
+  $("#enemyHp").text(randomEnemyName.hp)
+  $("#enemyMana").text(randomEnemyName.mana)
+  $("#enemyAttack").text(randomEnemyName.attack)
+  $("#enemyDefence").text(randomEnemyName.defence)
 };
+//Attacking Enemy
+const playerAttack =()=>{
+randomEnemeyName.hp -= player[0].attack - randomEnemyName.defence
+}
 
 //PAGE CHANGE
 const showPage2 = () => {
@@ -113,7 +123,8 @@ const showPage2 = () => {
 $(".page2").hide();
 $(".page3").hide();
 $(".page1").on("click", showPage2);
-$("#link1").on("click", warrior);
-$("#link2").on("click");
-$("#link3").on("click");
-$("#link4").on("click");
+$("#link1").on("click", () => {showClass(0)});
+$("#link2").on("click", () => {showClass(1)});
+$("#link3").on("click", () => {showClass(2)});
+$("#link4").on("click", () => {showClass(3)});
+$("#playerAttack").on("click",playerAttack)
