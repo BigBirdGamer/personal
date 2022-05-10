@@ -4,10 +4,12 @@
     <meta charset="UTF-8" />
     <link rel="icon" type="image/svg+xml" href="favicon.svg" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Vite App</title>
   </head>
   <body>
+   
     <script type="module" src="/main.js"></script>
-
+    
     <div class="page1">
       <button class = "startButton">Start Adventure</button>
  
@@ -42,36 +44,34 @@
     </div>
 
     <div class="page3">
+      <canvas id="canvas"></canvas>
        <table>
         <tr>
           <td id="player"></td>
-          <td id="enemy">with two columns</td>
+          <td id="enemy">enemy class img</td>
       </tr>
       <tr>
-        <td id="hp">The table </td>
-        <canvas id="hpBar"></canvas>
-        <td id="enemyHp">with two columns</td>
+        <td id="hp">Player Hp</td>
+        <td><button id="playerAttack">Attack</button></td>
+        <td id="enemyHp">Enemey Hp</td>
     </tr>
     <tr>
-      <td id="mana">table body</td>
-      <td id="enemyMana">with two columns</td>
+      <td id="mana">Player mana</td>
+      <td><button id="playerSkill">Skills</button></td>
+      <td id="enemyMana">Enemy Mana</td>
   </tr>
   <tr>
-    <td id="attack">The table body</td>
-    <td id="enemyAttack">with two columns</td>
+    <td id="attack">player Damage</td>
+    <td></td>
+    <td id="enemyAttack">Enemy Damage</td>
 </tr>
 <tr>
-  <td id="defence">The table body</td>
-  <td id="enemyDefense">with two columns</td>
+  <td id="defence">player Defense</td>
+  <td></td>
+  <td id="enemyDefense">enemy defence</td>
 </tr>
        </table>
     </div>
-  
-     <div class="actions"></div>
-  
-     <div class="arena"></div>
-  
-     
-    </body>
-  </html>
-  
+
+  </body>
+</html>
