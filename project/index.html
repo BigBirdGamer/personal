@@ -9,22 +9,17 @@
   <body>
    
     <script type="module" src="/main.js"></script>
-    
-    <div class="page1">
-      <button class = "startButton">Start Adventure</button>
- 
-    </div>
   
-    <div class="page2">
+    <div class="chooseClassPage">
       <h2>Choose your class!</h2>
       <a href="#" id="link1">
-        <img src="images/warrior.png" alt="Warrior">
+        <img id="image1" src="images/warrior.png" alt="Warrior">
         <div>
           <p>Warriors have higher health and stamina but their strength makes them slower.</p>
         </div>
       </a>
       <a href="#" id="link2">
-        <img src="images/assasin.png" alt="Assasin">
+        <img id="image2" src="images/assasin.png" alt="Assasin">
         <div>
           <p>Assasins are fast and agile but lack in strength and health.</p>
         </div>
@@ -42,36 +37,27 @@
         </div>
       </a>
     </div>
-
-    <div class="warrior">
-      <canvas id="canvas"></canvas>
-       <table>
-        <tr>
-          <td id="player"></td>
-          <td id="enemy"></td>
-      </tr>
-      <tr>
-        <td id="hp">Player Hp</td>
-        <td><button id="playerAttack">Attack</button></td>
-        <td id="enemyHp">Enemey Hp</td>
-    </tr>
-    <tr>
-      <td id="mana">Player mana</td>
-      <td><button id="playerSkill">Skills</button></td>
-      <td id="enemyMana">Enemy Mana</td>
-  </tr>
-  <tr>
-    <td id="attack">player Damage</td>
-    <td></td>
-    <td id="enemyAttack">Enemy Damage</td>
-</tr>
-<tr>
-  <td id="defence">player Defense</td>
-  <td></td>
-  <td id="enemyDefence">enemy defence</td>
-</tr>
-       </table>
+<div><button id="start">Start Advanture</button></div>
+    <div class="combatPage">
+      <div id="playerHealth">HP: 100</div>
+      <div id="playerMana">Mana: 100</div>
+      <div class="combatOutput"></div>
+      <div id="enemyHealth">ENEMY HP: </div>
+      
     </div>
+    <div class="combatMenu">
+      <button type="button" class="combatButton" id="useWeapon">Use weapon</button>
+      <button type="button" class="combatButton" id="useSkill">Use fireball</button>
+      <!-- <button type="button" class="combatButton" id="useIce">Use ice shard</button> -->
+      <button type="button" class="combatButton" id="useManaPot">Use mana potion</button>
+      <button type="button" class="combatButton" id="useHealthPot">Use Health Potion</button>
+      <button type="button" class="combatButton" id="swapEnemies">Swap enemies</button>
+      <select id="inventory">
+        <option>Inventory</option>
+      </select>
+      <button type="button" class="combatButton" id="backToMenu">Back to game</button>
+    </div>
+   
 
   </body>
 </html>
