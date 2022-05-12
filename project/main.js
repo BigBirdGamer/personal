@@ -1,11 +1,11 @@
 import "./style.css";
 import $ from "jquery";
 
-let health = 0;
-let mana = 0;
+let playerCurrentHealth = 0;
+let playerCurrentMana = 0;
 let playerhealthToDocument = document.getElementById("playerHealth");
 let playermanaToDocument = document.getElementById("playerMana");
-let playerEquipped; 
+let playerEquippedWeapon; 
 let playerDamage;
 let playerRealDamage = 0;
 let enemyMove;
@@ -15,7 +15,7 @@ let enemyhealth;
 let hasAttacked;
 let player ; 
 let enemyHealthToDocument = document.getElementById("enemyHealth");
-let skillName;
+let playersSkillName;
 let playerSkillNameToDocument = document.getElementById("useSkill");
 let skill;
 let Healthpot;
@@ -63,17 +63,17 @@ const archer = {health: 80,mana: 80,inventory: ["bow", ["health potion", 2]], we
   };
    // SELECTING THE CHARACTER
   const selectCharacter = (para) => {
-    health = para.health;
-    mana = para.mana;
-    playerhealthToDocument.innerHTML = "YOUR HP: " + health;
-    playermanaToDocument.innerHTML = "YOUR MANA: "+mana;
-    playerEquipped = para.weapon.name
+    playerCurrentHealth = para.health;
+    playerCurrentMana = para.mana;
+    playerhealthToDocument.innerHTML = "YOUR HP: " + playerCurrentHealth;
+    playermanaToDocument.innerHTML = "YOUR MANA: "+playerCurrentMana;
+    playerEquippedWeapon = para.weapon.name
     playerDamage = para.weapon.stats
-    skillName =para.skillname
+    playersSkillName =para.skillname
     Healthpot = para.healthPot
     Manapot = para.manaPot
-
-    playerSkillNameToDocument.innerHTML = skillName;
+console.log(Manapot)
+    playerSkillNameToDocument.innerHTML = playersSkillName;
     skill = para.skill
     $("#start").show()
     $(".chooseClassPage").hide()
@@ -113,12 +113,12 @@ if(attackingType === enemyWeaknessType.vulnerability[0]){
 const enemyTurn = () => {
   if(enemy.health <= 0){
     return printConsole("You've defeated the " + enemy.name + ".");
-  } else if(health >= 0){
+  } else if(playerCurrentHealth >= 0){
     enemyMove = randomEnemyMove(enemy);
   enemyDamage = randomDamage(enemy.moves[enemyMove][1], 1);
   let enemyRealDamage = Math.floor(enemyDamage);
-  health = health - enemyRealDamage;
-  playerhealthToDocument.innerHTML = "YOUR HP " + health;
+  playerCurrentHealth = playerCurrentHealth - enemyRealDamage;
+  playerhealthToDocument.innerHTML = "YOUR HP " + playerCurrentHealth;
   printConsole(
     enemy.name +
       " attacks you with " +
@@ -127,7 +127,7 @@ const enemyTurn = () => {
       enemyRealDamage +
       "!"
   );
-  }else if(health <=0){
+  }else if(playerCurrentHealth <=0){
     return printConsole("You Died ");
   }
 hasAttacked = true;
@@ -141,7 +141,7 @@ const useWeapon = ()=>{
       enemy.health = enemy.health - playerRealDamage;
       enemyhealth = enemy.health // enemy health value
       enemyHealthToDocument.innerHTML = "ENEMY HP:  " + enemyhealth; // enemy health html element
-      printConsole("You attack " +enemy.name + " with your " + playerEquipped + " for " + Number(playerRealDamage)
+      printConsole("You attack " +enemy.name + " with your " + playerEquippedWeapon + " for " + Number(playerRealDamage)
       );
       setTimeout(enemyTurn, 1000);
       hasAttacked = false;}
@@ -155,17 +155,17 @@ const useWeapon = ()=>{
     const useSkill = ()=>{
       if (hasAttacked === false) {
         return printConsole("You are still recovering from your attack.");
-      }if (health >= 0 && enemyhealth >= 0 && mana >= skill.manaCost) {
+      }if (playerCurrentHealth >= 0 && enemyhealth >= 0 && playerCurrentMana >= skill.manaCost) {
         playerDamage = randomDamage(skill.stats, 1);
           playerRealDamage = Math.floor(playerDamage);
           enemy.health = enemy.health - playerRealDamage;
           enemyhealth = enemy.health // enemy health value
           enemyHealthToDocument.innerHTML = "ENEMY HP:  " + enemyhealth; // enemy health html element
-          mana = mana - skill.manaCost;
-          printConsole("You " + skillName + " " + enemy.name + " for " + playerRealDamage);
-          playermanaToDocument.innerHTML = "YOUR MP " + mana;
-          if (checkDamageType(skillName, enemy) > 0) {
-            printConsole(skillName + " did extra " + enemy.vulnerability[1] + " damage");
+          playerCurrentMana = playerCurrentMana - skill.manaCost;
+          printConsole("You " + playersSkillName + " " + enemy.name + " for " + playerRealDamage);
+          playermanaToDocument.innerHTML = "YOUR MP " + playerCurrentMana;
+          if (checkDamageType(playersSkillName, enemy) > 0) {
+            printConsole(playersSkillName + " did extra " + enemy.vulnerability[1] + " damage");
             enemy.health = enemy.health - enemy.vulnerability[1];
           }
        setTimeout(enemyTurn, 1000);
@@ -190,12 +190,12 @@ function useHealthPot() {
   if (hasAttacked === false) {
     return printConsole("You are still recovering from your attack.");
   }
-  if (healthPot.owned > 0) {
-    health = health + Healthpot.stats;
-    Healthpot = Healthpot.owned - 1;
+  if (Healthpot.owned > 0) {
+    playerCurrentHealth = playerCurrentHealth + healthPot.stats;
+    Healthpot.owned = Healthpot.owned - 1;
     printConsole("You use a health potion. You feel invigorated! Hp + " + healthPot.stats );
-    playerhealthToDocument.innerHTML = "YOUR HP " + health;
-
+    playerhealthToDocument.innerHTML = "YOUR HP " + playerCurrentHealth;
+    console.log("HAVE HP POTS")
     setTimeout(enemyTurn, 1000);
     hasAttacked = false;
   } else {
@@ -207,11 +207,13 @@ function useManaPot() {
   if (hasAttacked === false) {
     return printConsole("You are still recovering from your attack.");
   }
-  else if (manaPot.owned > 0) {
-    mana = mana + Manapot.stats;
-    Manapot = Manapot.owned - 1;
+  else if (Manapot.owned > 0) {
+    playerCurrentMana = playerCurrentMana + manaPot.stats;
+    Manapot.owned = Manapot.owned - 1;
     printConsole("You use a mana potion. You feel invigorated! Mana + " + manaPot.stats );
-   playermanaToDocument.innerHTML = "YOUR Mana: " + mana;
+   playermanaToDocument.innerHTML = "YOUR Mana: " + playerCurrentMana;
+  
+   console.log(playerCurrentMana,"MANA")
     setTimeout(enemyTurn, 1000);
     hasAttacked = false;
   } else {
@@ -224,14 +226,14 @@ function useManaPot() {
 const useSwapEnemies = () =>{
   if (enemy === ancientGolem){
     combat(player,wyvern);
-    health
-    mana
+    playerCurrentHealth
+    playerCurrentMana
     enemyhealth = enemy.health // enemy health value
     enemyHealthToDocument.innerHTML = "ENEMY HP:  " + enemyhealth; // enemy health html element
   } else {
     combat(player, ancientGolem);
-    health
-    mana
+    playerCurrentHealth
+    playerCurrentMana
   }
 }
 
@@ -244,7 +246,7 @@ const useBackToMenu = ()=>{
 
 
 document.getElementById('link1').onclick = function(){
- player = selectCharacter(warrior);
+ selectCharacter(warrior);
 
 }
 document.getElementById('link2').onclick = function(){
