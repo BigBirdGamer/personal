@@ -25,7 +25,7 @@ let manaBar = document.getElementById("manaBar")
 let enemyHealthBar = document.getElementById("enemyHealthBar")
 let playerImageToDocument=document.createElement("img") 
 let theImageThatPLayerChose ;
-console.log(theImageThatPLayerChose)
+
 
 //PLAYER ITEMS
 let healthPot = { stats: 35, owned: 2 };
