@@ -9,9 +9,10 @@
   <body>
    
     <script type="module" src="/main.js"></script>
-  
+    
     <div class="chooseClassPage">
       <h2>Choose your class!</h2>
+      <div class ="image-grid">
       <a href="#" id="link1">
         <img id="image1" src="images/warrior.png" alt="Warrior">
         <div>
@@ -37,18 +38,28 @@
         </div>
       </a>
     </div>
+    </div>
 <div><button id="start">Start Advanture</button></div>
     <div class="combatPage">
+      <div class="PLAYER" >
       <div id="playerHealth">HP: 100</div>
-      <div id="playerMana">Mana: 100</div>
-      <div class="combatOutput"></div>
-      <div id="enemyHealth">ENEMY HP: </div>
+      <progress id="healthBar" value="100" max="100"></progress>
+      <div id="playerMana">Mana: 100</div>      
+      <progress id="manaBar" value="100" max="100"></progress>
+      <div id="playerClassImage"></div>
+    </div>
+
+    <div class="combatOutput"></div>
+      <div class="EnemyHealthBar" id="enemyHealth">ENEMY HP: </div>
+      <progress class="EnemyHealthBar" id="enemyHealthBar" value="100" max="100"></progress>
+      
+      
+
       
     </div>
     <div class="combatMenu">
       <button type="button" class="combatButton" id="useWeapon">Use weapon</button>
       <button type="button" class="combatButton" id="useSkill">Use fireball</button>
-      <!-- <button type="button" class="combatButton" id="useIce">Use ice shard</button> -->
       <button type="button" class="combatButton" id="useManaPot">Use mana potion</button>
       <button type="button" class="combatButton" id="useHealthPot">Use Health Potion</button>
       <button type="button" class="combatButton" id="swapEnemies">Swap enemies</button>

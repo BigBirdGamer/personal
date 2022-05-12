@@ -1,3 +1,78 @@
 img{
-  width: 300px;
+width: 24rem;
+}
+
+a{
+  display: flex;
+  text-decoration: none;
+  color:black;
+}
+a:visited{
+  color:black;
+}
+#link1{
+grid-column-start: 1;
+padding: 10px;
+}
+#link2{
+grid-column-start: 2;
+padding: 10px;
+}
+#link3{
+  grid-column-start: 1;
+  padding: 10px;
+} 
+#link4{
+  grid-column-start: 2;
+  padding: 10px;
+}
+
+h2{
+  text-align: center;
+  font-size: 50px;
+}
+.image-grid{
+  box-sizing: border-box;
+  padding: 16px;
+  display: grid;
+  grid-template-columns: 2,1fr;
+  width: 120%;
+}
+#healthBar{
+  accent-color: red;
+  text-align: left;
+}
+#manaBar{
+ accent-color:  blue;
+}
+
+.EnemyHealthBar{
+  accent-color: red ;
+  position: relative;
+  right:0;
+  top:0;
+}
+.combatPage{
+  display:flex;
+  justify-content: space-between;
+}
+.PLAYER{
+  display:flex;
+  flex-direction: column;
+}
+.combatOutput{
+  overflow: auto;
+  text-align: center;
+  margin-left: auto;
+  margin-right:auto ;
+  height: 20rem;
+  width: 50rem;
+}
+.combatMenu{
+
+  text-align: center;
+  margin-left: auto;
+  margin-right:auto ;
+  height: 20rem;
+  width: 50rem;
 }
