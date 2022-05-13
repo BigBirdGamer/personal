@@ -93,6 +93,7 @@ body{
   background-image: url("/images/bgImage.jpg");
   background-position: center;
   background-size: cover;
+  overflow: hidden;
 }
 
 #playerHealth{
