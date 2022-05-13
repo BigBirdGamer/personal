@@ -1,31 +1,38 @@
 import "./style.css";
 import $ from "jquery";
+//PLAYER 
 
+//player ={ health:0 } better way to code it using an object
 let playerCurrentHealth = 0;
 let playerCurrentMana = 0;
-let playerhealthToDocument = document.getElementById("playerHealth");
-let playermanaToDocument = document.getElementById("playerMana");
+let playerMaxHealth=0;
+let playerMaxMana=0;
 let playerEquippedWeapon;
 let playerDamage;
 let playerRealDamage = 0;
+let player;
+let playersSkillName;
+let skill;
+//ENEMY
 let enemyMove;
 let enemyDamage;
 let enemy;
 let enemyhealth;
 let hasAttacked;
-let player;
-let enemyHealthToDocument = document.getElementById("enemyHealth");
-let playersSkillName;
-let playerSkillNameToDocument = document.getElementById("useSkill");
-let skill;
+//ITEMS
 let Healthpot;
 let Manapot;
+
+let enemyHealthToDocument = document.getElementById("enemyHealth");
+let playerSkillNameToDocument = document.getElementById("useSkill");
+let playerhealthToDocument = document.getElementById("playerHealth");
+let playermanaToDocument = document.getElementById("playerMana");
 let healthBar = document.getElementById("healthBar")
 let manaBar = document.getElementById("manaBar")
 let enemyHealthBar = document.getElementById("enemyHealthBar")
 let playerImageToDocument=document.createElement("img") 
-let theImageThatPLayerChose ;
-
+const startGameAudio = new Audio("music/mission.mp3")
+const gameOverAudio = new Audio("music/titanic.mp3")
 
 //PLAYER ITEMS
 let healthPot = { stats: 35, owned: 2 };
@@ -49,8 +56,9 @@ let powerShot = { stats: 10, damageType: "blunt", manaCost: 25, owned: false };
 
 // PLAYER CLASSES
 const warrior = {
-  health: 100,
+  health: 100, maxHealth: 100,
   mana: 50,
+  maxMana: 50,
   inventory: ["old sword", ["health potion", 2]],
   weapon: oldSword,
   skillname: "SheildBash",
@@ -60,7 +68,9 @@ const warrior = {
 };
 const assasin = {
   health: 70,
+  maxHealth: 70,
   mana: 50,
+  maxMana: 50,
   inventory: ["ninjato", ["health potion", 2]],
   weapon: ninjato,
   skillname: "Assasinate",
@@ -70,56 +80,63 @@ const assasin = {
 };
 const wizard = {
   health: 65,
-  mana: 100,
+  maxHealth: 65,
+  mana: 100, maxMana: 100,
   inventory: ["staff", ["health potion", 2]],
   weapon: staff,
   skillname: "FireBall",
   skill: fireBall,
   healthPot,
-  manaPot,
+  manaPot, image: "images/wizard.png"
 };
 const archer = {
   health: 80,
+  maxHealth: 80,
   mana: 80,
+  maxMana: 80,
   inventory: ["bow", ["health potion", 2]],
   weapon: bow,
   skillname: " PowerShot",
   skill: powerShot,
   healthPot,
-  manaPot,
+  manaPot, image: "images/archer.png"
 };
 
 //ENEMIES
-let ancientGolem = {
-  name: "Ancient Golem",
+let diablo = {
+  name: "Diablo",
   greeting:
-    "A Ancient Golem stomps forward. It launches a punch, attacking first.",
+    " stomps forward. It launches, attacking first.",
   health: 25,
   attackFirst: true,
   moveNum: 2,
   moves: [
-    ["punch", 5],
-    ["smash", 8],
+    ["claw", 5],
+    ["ram", 8],
   ],
   vulnerability: ["FireBall", 5],
+  image: "images/hornMonster.png"
 };
 let wyvern = {
   name: "wyvern",
   greeting: "The wyvern flies towards you, Breathing Fire. Good Luck",
-  health: 100,
+  attackFirst: true,
+  health: 50,
   moveNum: 3,
   moves: [
-    ["claw", 30],
-    ["headbutt", 50],
-    ["fire breath", 12],
+    ["claw", 10],
+    ["headbutt", 15],
+    ["fire breath", 25],
   ],
   vulnerability: ["blunt", 50],
 
 };
 // SELECTING THE CHARACTER
 const selectCharacter = (para) => {
-  playerCurrentHealth = para.health;
+  playerCurrentHealth = para.health; // player.health = para.heal (CHANGED TO OBJECT)
   playerCurrentMana = para.mana;
+  playerMaxHealth = para.maxHealth
+  playerMaxMana = para.MaxMana
   playerhealthToDocument.innerHTML = "YOUR HP: " + playerCurrentHealth;
   playermanaToDocument.innerHTML = "YOUR MANA: " + playerCurrentMana;
   playerEquippedWeapon = para.weapon.name;
@@ -127,7 +144,6 @@ const selectCharacter = (para) => {
   playersSkillName = para.skillname;
   Healthpot = para.healthPot;
   Manapot = para.manaPot;
-
   playerSkillNameToDocument.innerHTML = playersSkillName;
   skill = para.skill;
   $("#start").show();
@@ -136,23 +152,24 @@ const selectCharacter = (para) => {
   manaBar.value = playerCurrentMana
   healthBar.max = playerCurrentHealth
   manaBar.max = playerCurrentMana
+
   playerImageToDocument.setAttribute("src",`${para.image}`)
 let playerImageToDocumentInHTML = document.getElementById("playerClassImage")
 playerImageToDocumentInHTML.append(playerImageToDocument)
-
- 
 };
 
 // START GAME
 const startGame = () => {
-  combat(player, ancientGolem);
+  combat(player, diablo);
   enemyhealth = enemy.health; // enemy health value
   enemyHealthToDocument.innerHTML = "ENEMY HP:  " + enemyhealth; // enemy health html element
+  enemyHealthBar.value = enemyhealth
+  enemyHealthBar.max = enemyhealth
   $("#start").hide();
   $(".combatPage").show();
   $(".combatMenu").show();
-  enemyHealthBar.value = enemyhealth
-  enemyHealthBar.max = enemyhealth
+  $('#enemyClassImage').prepend('<img id="theImg" src="images/hornMonster.jpg" />')
+startGameAudio.play()
 };
 //PRINT OUT MOVES
 const printConsole = (input) => {
@@ -178,6 +195,7 @@ const checkDamageType = (attackingType, enemyWeaknessType) => {
 // ENEMY TURN
 const enemyTurn = () => {
   if (enemy.health <= 0) {
+    alert("ENEMY SLAINED")
     return printConsole("You've defeated the " + enemy.name + ".");
   } else if (playerCurrentHealth >= 0) {
     enemyMove = randomEnemyMove(enemy);
@@ -186,7 +204,7 @@ const enemyTurn = () => {
     playerCurrentHealth = playerCurrentHealth - enemyRealDamage;
     playerhealthToDocument.innerHTML = "YOUR HP " + playerCurrentHealth;
     healthBar.value = playerCurrentHealth
-    manaBar.value = playerCurrentMana
+    // manaBar.value = playerCurrentMana
    
     printConsole(
       enemy.name +
@@ -196,7 +214,9 @@ const enemyTurn = () => {
         enemyRealDamage +
         "!"
     );
-  } else if (playerCurrentHealth <= 0) {
+  } if (playerCurrentHealth <= 0) {
+    alert("YOU DIED")
+    gameOverAudio.play()
     return printConsole("You Died ");
   }
   hasAttacked = true;
@@ -207,13 +227,14 @@ const useWeapon = () => {
    if (hasAttacked === false) {
     return printConsole("You are still recovering from your attack.");
   }
-  else if (enemy.health >= 0) {
+  else if (enemy.health >= 0 && playerCurrentHealth >=0) {
     playerDamage = randomDamage(playerDamage, 1);
     playerRealDamage = Math.floor(playerDamage);
     enemy.health = enemy.health - playerRealDamage;
     enemyhealth = enemy.health; // enemy health value
     enemyHealthToDocument.innerHTML = "ENEMY HP:  " + enemyhealth; // enemy health html element
     enemyHealthBar.value = enemy.health
+    
     printConsole(
       "You attack " +
         enemy.name +
@@ -224,7 +245,11 @@ const useWeapon = () => {
     );
     setTimeout(enemyTurn, 1000);
     hasAttacked = false;
-  } 
+  } else{
+    alert("YOU DIED")
+    gameOverAudio.play()
+    return printConsole("You Died!");
+  }
 };
 //USE SKILL BUTTON
 const useSkill = () => {
@@ -236,7 +261,6 @@ const useSkill = () => {
     enemyhealth >= 0 &&
     playerCurrentMana >= skill.manaCost
   ) {
-    console.log("ITS WORKING")
     playerDamage = randomDamage(skill.stats, 1);
     playerRealDamage = Math.floor(playerDamage);
     enemy.health = enemy.health - playerRealDamage;
@@ -245,6 +269,8 @@ const useSkill = () => {
     playerCurrentMana = playerCurrentMana - skill.manaCost;
     healthBar.value = playerCurrentHealth
     manaBar.value = playerCurrentMana
+    enemyHealthBar.value = enemy.health
+
     printConsole(
       "You " + playersSkillName + " " + enemy.name + " for " + playerRealDamage
     );
@@ -264,6 +290,8 @@ const useSkill = () => {
 //COMBAT FUNCTION
 const combat = (player, enemyFighting) => {
   enemy = enemyFighting;
+  enemy.health
+  alert(enemy.greeting)
   printConsole(enemy.greeting);
   if (enemy.attackFirst === true) {
     enemyTurn();
@@ -279,6 +307,8 @@ function useHealthPot() {
   if (Healthpot.owned > 0) {
     playerCurrentHealth = playerCurrentHealth + healthPot.stats;
     Healthpot.owned = Healthpot.owned - 1;
+    healthBar.value = playerCurrentHealth;
+    // manaBar.value = playerCurrentMana;
     printConsole(
       "You use a health potion. You feel invigorated! Hp + " + healthPot.stats
     );
@@ -287,16 +317,22 @@ function useHealthPot() {
     setTimeout(enemyTurn, 1000);
     hasAttacked = false;
   } else {
+    alert("No health pots!")
     printConsole("You do not have a health potion");
   }
 }
-
 function useManaPot() {
   if (hasAttacked === false) {
     return printConsole("You are still recovering from your attack.");
   } else if (Manapot.owned > 0) {
+    console.log(typeof playerCurrentMana)
     playerCurrentMana = playerCurrentMana + manaPot.stats;
+  
+      console.log(playerCurrentMana)
     Manapot.owned = Manapot.owned - 1;
+    manaBar.value = playerCurrentMana;
+    
+    // manaBar.value = playerCurrentMana;
     printConsole(
       "You use a mana potion. You feel invigorated! Mana + " + manaPot.stats
     );
@@ -305,24 +341,43 @@ function useManaPot() {
     setTimeout(enemyTurn, 1000);
     hasAttacked = false;
   } else {
+    alert("No mana pots!")
+
     printConsole("You do not have a Mana potion");
   }
 }
 
 //CHANGE ENEMY
 const useSwapEnemies = () => {
-  if (enemy === ancientGolem) {
+  if (enemy === diablo) {
+    $('#enemyClassImage').hide()
+    $('#enemyClassImage2').show()
+    $('#theImg2').remove()
+    $('#enemyClassImage2').prepend('<img id="theImg2" src="images/wyvern.jpg" />')
     combat(player, wyvern);
-    playerCurrentHealth;
-    playerCurrentMana;
+    playerCurrentHealth =playerMaxHealth
+    playerMaxMana = playerMaxMana
     enemyhealth = enemy.health; // enemy health value
     enemyHealthToDocument.innerHTML = "ENEMY HP:  " + enemyhealth; // enemy health html element
+    enemyHealthBar.value = enemyhealth
+     enemyHealthBar.max = enemyhealth
+
   } else {
-    combat(player, ancientGolem);
-    playerCurrentHealth;
-    playerCurrentMana;
+    combat(player, diablo);
+    playerCurrentHealth =playerMaxHealth
+    playerMaxMana = playerMaxMana
+    enemyhealth = enemy.health; // enemy health value
+    enemyHealthToDocument.innerHTML = "ENEMY HP:  " + enemyhealth; // enemy health html element
+    $('#theImg').remove()
+    $('#enemyClassImage').prepend('<img id="theImg" src="images/hornMonster.jpg" />')
+    enemyHealthBar.value = enemyhealth
+    $('#enemyClassImage').show()
+    $('#enemyClassImage2').hide()
   }
 };
+const useStopMusic=()=>{
+  startGameAudio.pause()
+}
 
 // BACK TO MENU
 const useBackToMenu = () => {
@@ -363,6 +418,12 @@ document.getElementById("swapEnemies").onclick = function () {
 };
 document.getElementById("backToMenu").onclick = function () {
   useBackToMenu();
+};
+document.getElementById("backToMenu").onclick = function () {
+  useBackToMenu();
+};
+document.getElementById("stopMusic").onclick = function () {
+  useStopMusic();
 };
 $("#start").hide();
 $(".combatPage").hide();

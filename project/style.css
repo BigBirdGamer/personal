@@ -30,13 +30,18 @@ padding: 10px;
 h2{
   text-align: center;
   font-size: 50px;
+  color: azure;
+}
+p{
+  color: azure;
+  font-size: 30px;
 }
 .image-grid{
   box-sizing: border-box;
   padding: 16px;
   display: grid;
   grid-template-columns: 2,1fr;
-  width: 120%;
+  width: 100%;
 }
 #healthBar{
   accent-color: red;
@@ -46,30 +51,27 @@ h2{
  accent-color:  blue;
 }
 
-.EnemyHealthBar{
-  accent-color: red ;
-  position: relative;
-  right:0;
-  top:0;
-}
+
 .combatPage{
   display:flex;
   justify-content: space-between;
 }
+
 .PLAYER{
   display:flex;
   flex-direction: column;
 }
 .combatOutput{
   overflow: auto;
+  position: relative;
   text-align: center;
-  margin-left: auto;
-  margin-right:auto ;
-  height: 20rem;
+  left: 29rem;
+  
+  height: 40rem;
   width: 50rem;
 }
 .combatMenu{
-
+  font-size: 100px;
   text-align: center;
   margin-left: auto;
   margin-right:auto ;
@@ -84,4 +86,46 @@ h2{
     margin-top: 35rem;
     border-radius: 20px;
     font-size: 80px;
+}
+
+body{
+  background-color: black;
+  background-image: url("/images/bgImage.jpg");
+  background-position: center;
+  background-size: cover;
+}
+
+#playerHealth{
+  font-size: 2rem;
+  color: red;
+}
+
+#playerMana{
+  font-size: 1.6rem;
+  color: blue;
+}
+#enemyHealth{
+  font-size: 2rem;
+  color: red;
+  position: relative;
+  left: 56rem;
+  top: 1rem;
+}
+#enemyClassImage{
+  top: 6rem;
+  position: relative;
+  left: 23rem;
+}
+
+#enemyClassImage2{
+  top: 6rem;
+  position: relative;
+  left: 24rem;
+}
+#enemyHealthBar{
+  accent-color: red ;
+  position:relative;
+  left: 48rem;
+  top: 4rem;
+width: 10%;
 }
