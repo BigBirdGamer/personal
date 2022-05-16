@@ -93,7 +93,7 @@ const wizard = {
   skillname: "FireBall",
   skill: fireBall,
   healthPot,
-  manaPot, image: "images/wizard.png"
+  manaPot, image: "https://image.shutterstock.com/shutterstock/photos/1979184041/display_1500/stock-vector-wizard-sketch-of-game-classes-of-multiplayer-games-1979184041.jpg"
 };
 const archer = {
   health: 80,
@@ -105,7 +105,7 @@ const archer = {
   skillname: " PowerShot",
   skill: powerShot,
   healthPot,
-  manaPot, image: "images/archer.png"
+  manaPot, image: "https://image.shutterstock.com/shutterstock/photos/1979184053/display_1500/stock-vector-archer-elf-sketch-of-game-classes-of-multiplayer-games-1979184053.jpg"
 };
 
 //ENEMIES
@@ -121,7 +121,7 @@ let diablo = {
     ["ram", 8],
   ],
   vulnerability: ["FireBall", 5],
-  image: "images/hornMonster.png"
+  image: "https://image.shutterstock.com/shutterstock/photos/1824393821/display_1500/stock-photo--demon-devil-damn-monster-fiend-of-hell-nightmare-creature-from-the-underworld-a-beast-with-horns-1824393821.jpg"
 };
 let wyvern = {
   name: "wyvern",
@@ -135,7 +135,7 @@ let wyvern = {
     ["fire breath", 25],
   ],
   vulnerability: ["blunt", 50],
-
+  image:"https://image.shutterstock.com/shutterstock/photos/1824401945/display_1500/stock-photo-dragon-sitting-with-folded-wings-looking-forward-1824401945.jpg"
 };
 // SELECTING THE CHARACTER
 const selectCharacter = (para) => {
