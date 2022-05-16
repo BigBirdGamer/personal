@@ -65,7 +65,7 @@ p{
   overflow: auto;
   position: relative;
   text-align: center;
-  left: 23rem;
+  left: 5rem;
   
   height: 40rem;
   width: 50rem;
@@ -96,7 +96,7 @@ body{
   background-image: url("/images/bgImage.jpg");
   background-position: center;
   background-size: cover;
-  overflow: hidden;
+  /* overflow: hidden; */
 }
 
 #playerHealth{
@@ -112,8 +112,8 @@ body{
   font-size: 2rem;
   color: red;
   position: relative;
-  left: 56rem;
-  top: 1rem;
+  left: 30rem;
+  top: 0rem;
 }
 #enemyClassImage{
   top: 6rem;
@@ -129,7 +129,7 @@ body{
 #enemyHealthBar{
   accent-color: red ;
   position:relative;
-  left: 32rem;
-  top: 4rem;
+  left: 24rem;
+  top: 5rem;
 width: 10%;
 }
