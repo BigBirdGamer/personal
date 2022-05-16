@@ -70,7 +70,7 @@ const warrior = {
   skillname: "SheildBash",
   skill: sheildBash,
   healthPot,
-  manaPot, image: "imageURLwarrior"
+  manaPot, image: "https://image.shutterstock.com/shutterstock/photos/1979184029/display_1500/stock-vector-warrior-sketch-of-game-classes-of-multiplayer-games-1979184029.jpg"
 };
 const assasin = {
   health: 70,
@@ -82,7 +82,7 @@ const assasin = {
   skillname: "Assasinate",
   skill: assasinate,
   healthPot,
-  manaPot, image: "imageURLassasin"
+  manaPot, image: "https://image.shutterstock.com/shutterstock/photos/1979184056/display_1500/stock-vector-assassin-sketch-of-game-classes-of-multiplayer-games-1979184056.jpg"
 };
 const wizard = {
   health: 65,
