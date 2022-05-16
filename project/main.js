@@ -127,12 +127,12 @@ let wyvern = {
   name: "wyvern",
   greeting: "The wyvern flies towards you, Breathing Fire. Good Luck",
   attackFirst: true,
-  health: 50,
+  health: 30,
   moveNum: 3,
   moves: [
-    ["claw", 10],
-    ["headbutt", 15],
-    ["fire breath", 25],
+    ["claw", 5],
+    ["headbutt", 10],
+    ["fire breath", 15],
   ],
   vulnerability: ["blunt", 50],
   image:"https://image.shutterstock.com/shutterstock/photos/1824401945/display_1500/stock-photo-dragon-sitting-with-folded-wings-looking-forward-1824401945.jpg"
