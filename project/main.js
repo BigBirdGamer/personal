@@ -44,10 +44,10 @@ const gameOverAudio = new Audio("music/titanic.mp3")
 let healthPot = { stats: 35, owned: 2 };
 let manaPot = { stats: 25, owned: 2 };
 // PLAYER WEAPONS
-let oldSword = { name: "old sword", stats: 100, damageType: "slash" };
-let ninjato = { name: "ninjato", stats: 5, damageType: "slash" };
-let staff = { name: "staff", stats: 5, damageType: "magic" };
-let bow = { name: "bow", stats: 8, damageType: "pierce" };
+let oldSword = { name: "old sword", stats: 20, damageType: "slash" };
+let ninjato = { name: "ninjato", stats: 18, damageType: "slash" };
+let staff = { name: "staff", stats: 10, damageType: "magic" };
+let bow = { name: "bow", stats: 18, damageType: "pierce" };
 
 //SKILLS
 let sheildBash = { stats: 10, damageType: "blunt", manaCost: 25, owned: false };
