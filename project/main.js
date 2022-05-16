@@ -184,7 +184,7 @@ const printConsole = (input) => {
 
 //RANDOM DAMAGE
 const randomDamage = (max, min) => {
-  return Math.random() * (max - min) + min;
+  return (Math.random() * (max - min)) + min;
 };
 
 //RANDOM ENEMY ATTACK MOVE
