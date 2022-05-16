@@ -4,7 +4,7 @@ import imageURLarcher from './images/archer.png'
 import imageURLassasin from './images/assasin.png'
 import imageURLwarrior from './images/warrior.png'
 import imageURLwizard from './images/wizard.png'
-import imageURLhornMonster from  "./images/hornMonster.png"
+import imageURLhornMonster from  "./images/hornMonster.jpg"
 import imageURLwyvern from  "./images/wyvern.jpg"
 
 
