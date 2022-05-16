@@ -1,6 +1,12 @@
 import "./style.css";
 import $ from "jquery";
-//PLAYER 
+import imageURLarcher from './images.archer.png'
+import imageURLassasin from './images.assasin.png'
+import imageURLwarrior from './images.warrior.png'
+import imageURLwizard from './images.wizard.png'
+import imageURLhornMonster from  "./images/hornMonster.png"
+import imageURLwyvern from  "./images/wyvern.jpg"
+
 
 //player ={ health:0 } better way to code it using an object
 let playerCurrentHealth = 0;
@@ -64,7 +70,7 @@ const warrior = {
   skillname: "SheildBash",
   skill: sheildBash,
   healthPot,
-  manaPot, image: "images/warrior.png"
+  manaPot, image: "imageURLwarrior"
 };
 const assasin = {
   health: 70,
@@ -76,7 +82,7 @@ const assasin = {
   skillname: "Assasinate",
   skill: assasinate,
   healthPot,
-  manaPot, image: "images/assasin.png"
+  manaPot, image: "imageURLassasin"
 };
 const wizard = {
   health: 65,
