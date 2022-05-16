@@ -234,7 +234,7 @@ const useWeapon = () => {
     return printConsole("You are still recovering from your attack.");
   }
   else if (enemy.health >= 0 && playerCurrentHealth >=0) {
-    playerDamage = randomDamage(playerDamage, 1);
+    playerDamage = randomDamage(playerDamage, 3);
     playerRealDamage = Math.floor(playerDamage);
     enemy.health = enemy.health - playerRealDamage;
     enemyhealth = enemy.health; // enemy health value
