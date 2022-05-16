@@ -1,9 +1,9 @@
 import "./style.css";
 import $ from "jquery";
-import imageURLarcher from './images.archer.png'
-import imageURLassasin from './images.assasin.png'
-import imageURLwarrior from './images.warrior.png'
-import imageURLwizard from './images.wizard.png'
+import imageURLarcher from './images/archer.png'
+import imageURLassasin from './images/assasin.png'
+import imageURLwarrior from './images/warrior.png'
+import imageURLwizard from './images/wizard.png'
 import imageURLhornMonster from  "./images/hornMonster.png"
 import imageURLwyvern from  "./images/wyvern.jpg"
 
