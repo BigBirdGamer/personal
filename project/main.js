@@ -174,7 +174,7 @@ const startGame = () => {
   $("#start").hide();
   $(".combatPage").show();
   $(".combatMenu").show();
-  $('#enemyClassImage').prepend('<img id="theImg" src="images/hornMonster.jpg" />')
+  $("#enemyClassImage2").hide();
 startGameAudio.play()
 };
 //PRINT OUT MOVES
@@ -359,7 +359,6 @@ const useSwapEnemies = () => {
     $('#enemyClassImage').hide()
     $('#enemyClassImage2').show()
     $('#theImg2').remove()
-    $('#enemyClassImage2').prepend('<img id="theImg2" src="images/wyvern.jpg" />')
     combat(player, wyvern);
     playerCurrentHealth =playerMaxHealth
     playerMaxMana = playerMaxMana
@@ -375,7 +374,6 @@ const useSwapEnemies = () => {
     enemyhealth = enemy.health; // enemy health value
     enemyHealthToDocument.innerHTML = "ENEMY HP:  " + enemyhealth; // enemy health html element
     $('#theImg').remove()
-    $('#enemyClassImage').prepend('<img id="theImg" src="images/hornMonster.jpg" />')
     enemyHealthBar.value = enemyhealth
     $('#enemyClassImage').show()
     $('#enemyClassImage2').hide()
