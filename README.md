@@ -1,29 +1,29 @@
 # Developing a turn base combat game
-First Game project using HTML, CSS and JavaScript.
+First Game project 
 
 ## Project Brief
-*Built with HTML, CSS and JavaScript 
-*Use Javascript for DOM manipulation
-*Commits to Github frequently or not i will be having mad errors.
-*User interaction by clicking
+* Built with HTML, CSS and JavaScript 
+* Use Javascript for DOM manipulation
+* Commits to Github frequently or not i will be having mad errors.
+* User interaction by clicking
 
 ## Time Frame
  1 Week + 
 
 ## Software used:
-*HTML
-*CSS
-*JavaScript
-*Git & GitHub
+* HTML
+* CSS
+* JavaScript
+* Git & GitHub
 
 ## Description:
 This is a game where players are able to pick a class of their choosing and fight either of the 2 enemies. The game ends when either the players health bar drops to 0 or the enemies.
 
 ## Deployment:
-*https://personal-sand-nine.vercel.app/ Come check it out
+* https://personal-sand-nine.vercel.app/ Come check it out
 
-##Instructions:
-*Click on the class that interests you the most and battle the enemy! If one enemy was not enough you could always click the next enemy for a stronger monster.
+## Instructions:
+* Click on the class that interests you the most and battle the enemy! If one enemy was not enough you could always click the next enemy for a stronger monster.
 
 ## Break Down To-Do List:
 ### Wireframe 
