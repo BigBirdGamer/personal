@@ -385,9 +385,9 @@ const useStopMusic=()=>{
 
 // BACK TO MENU
 const useBackToMenu = () => {
-  // $(".combatPage").show()
-  $(".combatMenu").hide();
-  $(".chooseClassPage").show();
+  // $(".combatMenu").hide();
+  // $(".chooseClassPage").show();
+  location.reload()
 };
 
 document.getElementById("link1").onclick = function () {
