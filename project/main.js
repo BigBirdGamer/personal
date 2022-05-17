@@ -8,7 +8,7 @@ import imageURLhornMonster from  "./images/hornMonster.jpg"
 import imageURLwyvern from  "./images/wyvern.jpg"
 
 
-//player ={ health:0 } better way to code it using an object
+//player ={ health:0 } better way to code it using an object note to future self
 let playerCurrentHealth = 0;
 let playerCurrentMana = 0;
 let playerMaxHealth=0;
@@ -306,6 +306,7 @@ const combat = (player, enemyFighting) => {
 
 // USE POTS
 
+// Can use just one function for both of the potions
 function useHealthPot() {
   if (hasAttacked === false) {
     return printConsole("You are still recovering from your attack.");
