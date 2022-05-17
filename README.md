@@ -60,3 +60,8 @@ Nontheless, this experience has taught me how to improve my skills in research a
 * https://stackoverflow.com/questions/20277052/how-to-make-a-health-bar
 * https://stackoverflow.com/questions/26207724/how-to-call-function-after-timeout-function-is-done
 * All images has been licensed through shutterstock
+
+## SEI Post Mortem
+* I had the habit of making global variables that were a double edged sword as the more you had the more confused you get.
+* Neatness can be imporved on
+* sometimes i feel that the classes is too fast but overall if you do your own research after hour, it will be managable.
