@@ -127,12 +127,12 @@ let wyvern = {
   name: "wyvern",
   greeting: "The wyvern flies towards you, Breathing Fire. Good Luck",
   attackFirst: true,
-  health: 30,
+  health: 35,
   moveNum: 3,
   moves: [
-    ["claw", 5],
-    ["headbutt", 10],
-    ["fire breath", 15],
+    ["claw", 7],
+    ["headbutt", 12],
+    ["fire breath", 17],
   ],
   vulnerability: ["blunt", 50],
   image:"https://image.shutterstock.com/shutterstock/photos/1824401945/display_1500/stock-photo-dragon-sitting-with-folded-wings-looking-forward-1824401945.jpg"
@@ -381,6 +381,7 @@ const useSwapEnemies = () => {
 };
 const useStopMusic=()=>{
   startGameAudio.pause()
+  gameOverAudio.pause()
 }
 
 // BACK TO MENU
