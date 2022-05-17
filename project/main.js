@@ -50,15 +50,15 @@ let staff = { name: "staff", stats: 10, damageType: "magic" };
 let bow = { name: "bow", stats: 18, damageType: "pierce" };
 
 //SKILLS
-let sheildBash = { stats: 10, damageType: "blunt", manaCost: 25, owned: false };
+let sheildBash = { stats: 12, damageType: "blunt", manaCost: 25, owned: false };
 let assasinate = {
-  stats: 15,
+  stats: 18,
   damageType: "critical",
   manaCost: 25,
   owned: false,
 };
 let fireBall = { stats: 20, damageType: "magic", manaCost: 25, owned: false };
-let powerShot = { stats: 10, damageType: "blunt", manaCost: 25, owned: false };
+let powerShot = { stats: 16, damageType: "blunt", manaCost: 25, owned: false };
 
 // PLAYER CLASSES
 const warrior = {
