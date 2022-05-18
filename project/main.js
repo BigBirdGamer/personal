@@ -8,7 +8,7 @@ import imageURLhornMonster from  "./images/hornMonster.jpg"
 import imageURLwyvern from  "./images/wyvern.jpg"
 
 
-//player ={ health:0 } better way to code it using an object
+//player ={ health:0 } better way to code it using an object note to future self
 let playerCurrentHealth = 0;
 let playerCurrentMana = 0;
 let playerMaxHealth=0;
@@ -50,15 +50,15 @@ let staff = { name: "staff", stats: 10, damageType: "magic" };
 let bow = { name: "bow", stats: 18, damageType: "pierce" };
 
 //SKILLS
-let sheildBash = { stats: 10, damageType: "blunt", manaCost: 25, owned: false };
+let sheildBash = { stats: 12, damageType: "blunt", manaCost: 25, owned: false };
 let assasinate = {
-  stats: 15,
+  stats: 18,
   damageType: "critical",
   manaCost: 25,
   owned: false,
 };
 let fireBall = { stats: 20, damageType: "magic", manaCost: 25, owned: false };
-let powerShot = { stats: 10, damageType: "blunt", manaCost: 25, owned: false };
+let powerShot = { stats: 16, damageType: "blunt", manaCost: 25, owned: false };
 
 // PLAYER CLASSES
 const warrior = {
@@ -127,12 +127,12 @@ let wyvern = {
   name: "wyvern",
   greeting: "The wyvern flies towards you, Breathing Fire. Good Luck",
   attackFirst: true,
-  health: 30,
+  health: 35,
   moveNum: 3,
   moves: [
-    ["claw", 5],
-    ["headbutt", 10],
-    ["fire breath", 15],
+    ["claw", 7],
+    ["headbutt", 12],
+    ["fire breath", 17],
   ],
   vulnerability: ["blunt", 50],
   image:"https://image.shutterstock.com/shutterstock/photos/1824401945/display_1500/stock-photo-dragon-sitting-with-folded-wings-looking-forward-1824401945.jpg"
@@ -306,6 +306,7 @@ const combat = (player, enemyFighting) => {
 
 // USE POTS
 
+// Can use just one function for both of the potions
 function useHealthPot() {
   if (hasAttacked === false) {
     return printConsole("You are still recovering from your attack.");
@@ -381,13 +382,14 @@ const useSwapEnemies = () => {
 };
 const useStopMusic=()=>{
   startGameAudio.pause()
+  gameOverAudio.pause()
 }
 
 // BACK TO MENU
 const useBackToMenu = () => {
-  // $(".combatPage").show()
-  $(".combatMenu").hide();
-  $(".chooseClassPage").show();
+  // $(".combatMenu").hide();
+  // $(".chooseClassPage").show();
+  location.reload()
 };
 
 document.getElementById("link1").onclick = function () {
