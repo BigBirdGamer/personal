@@ -6,9 +6,9 @@ import {useState, useEffect} from "react"
 
 export default function App() {
 
-    const [name, setName] = useState([]);
-    const [email, setEmail] =useState([]);
-    const [birthday, setBirthday] =useState([]);
+    const [name, setName] = useState({});
+    const [email, setEmail] =useState({});
+    const [birthday, setBirthday] =useState({});
     // const [email, setEmail] =useState({});
 
     useEffect(() => {

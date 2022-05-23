@@ -1,6 +1,6 @@
 import { useState } from 'react'
 import './App.css'
-import RandomImage from "./components/RandomImage"
+import RandomImage from "./components/RandomImages"
 
 function App() {
   const [count, setCount] = useState(0)
