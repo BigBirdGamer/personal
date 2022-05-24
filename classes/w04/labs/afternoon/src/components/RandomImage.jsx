@@ -1,41 +1,52 @@
-import React from 'react';
-import '../App.css';
-import {useState, useEffect} from "react"
+import { useState, useEffect } from "react";
+import "../App.css";
 
-//name , email , birthdate , city , phone
+const extractData = (user, thing) => {
+  if (thing === "name") {
+    return user.name.first + user.name.last;
+  } else if (thing === "email") {
+    return user.email;
+  } else if (thing === "birthdate") {
+    return user.dob.date;
+  } else if (thing === "city") {
+    return user.location.city;
+  } else if (thing === "phone") {
+    return user.phone;
+  }
+  return "Nothing";
+};
 
-export default function App() {
+function RandomUser() {
+  const [user, setUser] = useState({});
+  const [thing, setThing] = useState("email");
+  const [num, setNum] = useState(0);
 
-    const [name, setName] = useState({});
-    const [email, setEmail] =useState({});
-    const [birthday, setBirthday] =useState({});
-    // const [email, setEmail] =useState({});
+  useEffect(() => {
+    fetch("https://randomuser.me/api/")
+      .then((response) => response.json())
+      .then((data) => setUser(data.results[0]));
+  }, [num]);
 
-    useEffect(() => {
-        const fetchData = async () => {
-            const response = await fetch("https://randomuser.me/api/")
-            const data = await response.json()
-        console.log(data.results[0].email)
-            setName(data.results[0].name.first);
-            setEmail(data.results[0].email);
-            
-        }
-        fetchData()
-    }, [])
+  const handleClick = (event) => {
+    //   console.log("event", event.target.id);
+    setThing(event.target.id);
+  };
+  const styles = { backgroundImage: `url(${user?.picture?.large})` };
 
-  const handleClick = () => {
-    fetch(`https://randomuser.me/api/`)
-    .then((response) => response.json())
-    .then((data) => setName(data)); 
+  const handleNewRandomUser = () => {
+    console.log("click");
+    setNum(num + 1);
   };
 
-  const styles = {};
-
+  //   <div id="photo" style="background-image: url(&quot;https://randomuser.me/api/portraits/women/34.jpg&quot;);"></div>
   return (
     <div id="container">
       <div style={styles} id="photo"></div>
       <div id="content">
-        <span id="smalltext">My name is - {name}</span>
+        <span id="smalltext">
+          My {thing} is {extractData(user, thing)}
+          <button onClick={handleNewRandomUser}>New Random User</button>
+        </span>
         <span id="bigtext"></span>
       </div>
       <div onClick={handleClick} className="attribute">
@@ -66,3 +77,5 @@ export default function App() {
     </div>
   );
 }
+
+export default RandomUser;
