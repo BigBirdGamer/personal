@@ -21,11 +21,18 @@ function RandomUser() {
   const [thing, setThing] = useState("email");
   const [num, setNum] = useState(0);
 
+<<<<<<< HEAD
   useEffect(() => {
     fetch("https://randomuser.me/api/")
       .then((response) => response.json())
       .then((data) => setUser(data.results[0]));
   }, [num]);
+=======
+    const [name, setName] = useState([]);
+    const [email, setEmail] =useState([]);
+    const [birthday, setBirthday] =useState([]);
+    // const [email, setEmail] =useState({});
+>>>>>>> b65223797f55301cac9a8a48c5f4bf39c5620c96
 
   const handleClick = (event) => {
     //   console.log("event", event.target.id);
