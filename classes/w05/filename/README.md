@@ -14,14 +14,17 @@ As a user I want to:
 * Home Page - with trending tv shows 
     * Path - /
     * read from json file
+    * click something to go details page
+    * click something to add to fav
+    * search component - search all the API stuff
 
 * Detail Page - with show details 
-    *Path - name/
-    *Fetch -> get specific show
+    * Path - name/
+    * Fetch -> get specific show
 
 * Fav Page - with fav shows 
-    *Path - favs/
-    *Temp store - dissapear when page reloads
+    * Path - favs/
+    * Temp store - dissapear when page reloads
 create 3 routes
 
 ## Auy Requests??

@@ -1,9 +1,23 @@
-import React from 'react'
+import Card from "./Home/Card";
+import PropTypes from "prop-types";
+import { FavsContext } from "../App";
+import { useContext } from "react";
 
-const Favs = () => {
+function Favs() {
+    const context = useContext(FavsContext);
+
   return (
-    <div>Favs</div>
-  )
+    <>
+      <h2>Favs</h2>
+      {context.favsData.map((show) => (
+        <Card id={show} key={show} />
+      ))}
+    </>
+  );
 }
 
-export default Favs
+// Favs.propTypes = {
+//   shows: PropTypes.array,
+// };
+
+export default Favs;

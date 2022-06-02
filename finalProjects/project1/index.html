@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <link rel="icon" type="image/svg+xml" href="favicon.svg" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Vite App</title>
+  </head>
+  <body>
+   
+    <script type="module" src="/main.js"></script>
+    
+    <div class="chooseClassPage">
+      <h2>Choose your class!</h2>
+      <div class ="image-grid">
+      <a href="#" id="link1">
+        <img id="image1" src="images/warrior.png" alt="Warrior">
+        <div>
+          <p>Warriors have higher health and stamina <br>but their strength makes them slower<br/>.</p>
+        </div>
+      </a>
+      <a href="#" id="link2">
+        <img id="image2" src="images/assasin.png" alt="Assasin">
+        <div>
+          <p>Assasins are fast and agile<br> but lack in strength and health.</p>
+        </div>
+      </a>
+      <a href="#" id="link3">
+        <img src="images/wizard.png" alt="wizard">
+        <div>
+          <p>Wizards are glass cannons wiping out enemies with their spells <br>but lack of everything else.</p>
+        </div>
+      </a>
+      <a href="#" id="link4">
+        <img src="images/archer.png" alt="archer">
+        <div>
+          <p>Archers are well rounded classes with<br> no particular strengths or weaknesses.<br/></p>
+        </div>
+      </a>
+    </div>
+    </div>
+<div><button id="start">Start Adventure</button></div>
+    <div class="combatPage">
+      <div class="PLAYER" >
+      <div id="playerHealth">HP: 100</div>
+      <progress id="healthBar" value="100" max="100"></progress>
+      <div id="playerMana">Mana: 100</div>      
+      <progress id="manaBar" value="100" max="100"></progress>
+      <div id="potionsAvailableDisplay"></div>
+      <div id="manaAvailableDisplay"></div>
+      <div id="playerClassImage"></div>
+      </div>
+
+    <div class="combatOutput"></div>
+
+      <div class="EnemyHealthBar" id="enemyHealth">ENEMY HP: </div>
+      <progress class="EnemyHealthBar" id="enemyHealthBar" value="100" max="100"></progress>
+      <div id="enemyClassImage"><img src="https://image.shutterstock.com/shutterstock/photos/1824393821/display_1500/stock-photo--demon-devil-damn-monster-fiend-of-hell-nightmare-creature-from-the-underworld-a-beast-with-horns-1824393821.jpg"></div>
+      <div id="enemyClassImage2"><img src = "https://image.shutterstock.com/shutterstock/photos/1824401945/display_1500/stock-photo-dragon-sitting-with-folded-wings-looking-forward-1824401945.jpg"></div>
+
+
+      
+    </div>
+    <div class="combatMenu">
+      <button type="button" class="combatButton" id="useWeapon">Use weapon</button>
+      <button type="button" class="combatButton" id="useSkill">Use fireball</button>
+      <button type="button" class="combatButton" id="useManaPot">Use mana potion</button>
+      <button type="button" class="combatButton" id="useHealthPot">Use Health Potion</button>
+      <button type="button" class="combatButton" id="swapEnemies">Next Enemy</button>
+      <button type="button" class="combatButton" id="stopMusic">Stop Music</button>
+
+     
+      <button type="button" class="combatButton" id="backToMenu">Back to Main Menu</button>
+    </div>
+   
+
+  </body>
+</html>
