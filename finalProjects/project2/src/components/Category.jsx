@@ -6,6 +6,7 @@ function Category() {
   return (
     <List>
        <StyledLink to={"/"}>
+     
         <h4>HOME</h4>
       </StyledLink>
 
@@ -23,6 +24,10 @@ function Category() {
 
       <StyledLink to={"/cuisine/cajun"}>
         <h4>Cajun</h4>
+      </StyledLink>
+
+      <StyledLink to={"/favourtie"}>
+        <h4>Favourite</h4>
       </StyledLink>
     </List>
   );

@@ -1,7 +1,7 @@
 import React from "react";
 import styled from "styled-components";
 import { useState } from "react";
-import { useNavigate } from "react-router-dom";
+import { useNavigate, Link } from "react-router-dom";
 
 function Search() {
   const [input, setInput] = useState("");
@@ -14,6 +14,12 @@ function Search() {
 
   return (
     <StyledForm onSubmit={submitHandler}>
+      <Link  to={"/"}>
+        <img
+          src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTLqcrZpk3aep4GW9UfYI0oFSnxGCnZrNxD7Q&usqp=CAU"
+          alt=""
+        />
+        </Link>
       <div>
         <input
           onChange={(e) => setInput(e.target.value)}

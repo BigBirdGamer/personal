@@ -3,9 +3,8 @@ import { useEffect, useState } from "react";
 import { useParams } from "react-router-dom";
 import styled from "styled-components";
 
-function Recipe() {
+function Recipe(props) {
   const [details, setDetails] = useState({});
-  const [activeTab, setActiveTab] = useState("instructions");
   let params = useParams();
 
   const fetchDetails = async () => {
@@ -19,15 +18,20 @@ function Recipe() {
   useEffect(() => {
     fetchDetails();
   }, []);
+
+  const onSubmit = ()=>{
+    props.settingFav(details)
+  }
   return (
     <>
       <div>
+        <button onClick={onSubmit}>Add to Favourtie</button>
         <h2>{details.title}</h2>
         <img src={details.image} alt="" />
       </div>
-      <div>
+      <div >
         <h4>Instructions</h4>
-        <p>{details?.summary}</p>
+        <p >{details?.summary}</p>
         <p>{details?.instructions} </p>
         <div>
           <h4>Ingredients</h4>
