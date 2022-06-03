@@ -21,6 +21,7 @@ function Recipe(props) {
 
   const onSubmit = ()=>{
     props.settingFav(details)
+    
   }
   return (
     <>
