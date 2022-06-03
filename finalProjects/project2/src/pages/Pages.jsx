@@ -6,18 +6,31 @@ import Recipe from './Recipe'
 import Favourtie from './Favourtie'
 import {Route, Routes} from "react-router-dom"
 import {useState} from "react"
+import { element } from 'prop-types'
 
 
 function Pages() {
-  const [favourite, setFavourtie] = useState({})
+  const [favourite, setFavourtie] = useState([])
+const addToFavourite = (recipe)=>{
+  setFavourtie([...favourite, recipe])
+  console.log(favourite)
+}
+const removeFromFav = (para)=>{
+  const newFavs = favourite.filter((element, index) => {
+    return(
+      para!== index
+    )
+  });
+  setFavourtie(newFavs);
+}
   return (
     
     <Routes>
       <Route path='/' element={<Home/>}/>
       <Route path='/cuisine/:type' element={<Cuisine/>}/>
       <Route path= '/searched/:search' element = {<Searched/>}/>
-      <Route path= "recipe/:name" element = {<Recipe settingFav={setFavourtie}/>}/>
-      <Route path= '/favourtie' element = {<Favourtie fav={favourite }/>}/>
+      <Route path= "recipe/:name" element = {<Recipe settingFav={addToFavourite}/>}/>
+      <Route path= '/favourtie' element = {<Favourtie fav={favourite } removeFromFav={removeFromFav}/>}/>
     </Routes>
     
   )

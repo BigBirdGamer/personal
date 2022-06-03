@@ -17,7 +17,6 @@ function Veggie() {
     );
     const data = await api.json();
     setVeggie(data.recipes);
-    console.log(veggie);
   };
   return (
     <div>

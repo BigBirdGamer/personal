@@ -5,6 +5,7 @@ import styled from "styled-components";
 
 function Recipe(props) {
   const [details, setDetails] = useState({});
+  const [disable, setDisable] = useState(false)
   let params = useParams();
 
   const fetchDetails = async () => {
@@ -13,27 +14,27 @@ function Recipe(props) {
     );
     const detailData = await data.json();
     setDetails(detailData);
-    console.log(detailData);
   };
   useEffect(() => {
     fetchDetails();
   }, []);
-
-  const onSubmit = ()=>{
-    props.settingFav(details)
     
-  }
+  const toggleFavourtie = ()=>{
+    props.settingFav(details)
+  
+    }
+  
   return (
     <>
       <div>
-        <button onClick={onSubmit}>Add to Favourtie</button>
+        <button onClick={()=> toggleFavourtie(details)} disabled={disable}>Add To Favourite</button>
         <h2>{details.title}</h2>
         <img src={details.image} alt="" />
       </div>
       <div >
         <h4>Instructions</h4>
-        <p >{details?.summary}</p>
-        <p>{details?.instructions} </p>
+        <p >{details?.summary.replace(/<[^>]+>/gm, '')}</p>
+        <p>{details?.instructions.replace(/<[^>]+>/gm, '')} </p>
         <div>
           <h4>Ingredients</h4>
           <ul>
