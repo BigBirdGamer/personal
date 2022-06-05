@@ -7,7 +7,7 @@ function Favourtie(props) {
 
   const removeFav=(key)=>{
     props.removeFromFav(key)
-
+    alert("Removed from favourites")
   }
   return (
     <div>
@@ -29,9 +29,3 @@ function Favourtie(props) {
 
 export default Favourtie
 
-// fav state must be a array of objects
-// map fav state
-//  make component fav
-// get set state fucntion from pages and pass it down by props 
-// inside remvoeFav function destrucvtuer the current state remove 
-// remove the object that has the same title as current item (event.target)

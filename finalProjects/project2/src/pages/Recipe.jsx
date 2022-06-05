@@ -21,7 +21,7 @@ function Recipe(props) {
     
   const toggleFavourtie = ()=>{
     props.settingFav(details)
-  
+    alert("Added to favourites")
     }
   
   return (
