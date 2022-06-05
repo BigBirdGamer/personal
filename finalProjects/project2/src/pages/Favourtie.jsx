@@ -1,6 +1,5 @@
 import React from 'react'
 import {Link} from "react-router-dom"
-import FavouriteComponents from '../components/FavouriteComponents'
 
 function Favourtie(props) {
 

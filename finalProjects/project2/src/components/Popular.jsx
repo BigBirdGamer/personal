@@ -14,7 +14,7 @@ function Popular() {
   const popularRecipe = async () => {
 
     const api = await fetch(
-      `https://api.spoonacular.com/recipes/random?apiKey=cdb84d8cf8744aff9a1a117ee39f0eeb&number=9`
+      `https://api.spoonacular.com/recipes/random?apiKey=${process.env.REACT_APP_API_KEY}&number=9`
     );
     const data = await api.json();
     setPopular(data.recipes);
@@ -62,6 +62,3 @@ img{
 }
 `;
 export default Popular;
-
-
-// ${process.env.REACT_APP_API_KEY}

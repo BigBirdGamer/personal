@@ -33,8 +33,8 @@ function Recipe(props) {
       </div>
       <div >
         <h4>Instructions</h4>
-        <p >{details?.summary.replace(/<[^>]+>/gm, '')}</p>
-        <p>{details?.instructions.replace(/<[^>]+>/gm, '')} </p>
+        <p >{details?.summary}</p>
+        <p>{details?.instructions} </p>
         <div>
           <h4>Ingredients</h4>
           <ul>
