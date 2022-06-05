@@ -6,7 +6,6 @@ import Recipe from './Recipe'
 import Favourtie from './Favourtie'
 import {Route, Routes} from "react-router-dom"
 import {useState} from "react"
-import { element } from 'prop-types'
 
 
 function Pages() {
