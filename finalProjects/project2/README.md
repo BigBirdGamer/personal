@@ -50,8 +50,8 @@ The website is deployed on Vercel and you can give it a try here! https://projec
 https://splidejs.com/integration/react-splide/
 https://www.youtube.com/watch?v=4THEPG9qIPo
 
-
-
+- Remove html tags
+https://blog.logrocket.com/using-dangerouslysetinnerhtml-in-a-react-application/
 
 
 
