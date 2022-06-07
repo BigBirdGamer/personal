@@ -1,6 +1,8 @@
+require('dotenv').config()
+console.log(process.env.PORT)
 const express = require("express")
 const app = express(); // method
-const port = 3000;
+const port = process.env.PORT || 3000;
 
 //? get => method call
 // 2 arguments
