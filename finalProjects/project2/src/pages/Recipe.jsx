@@ -33,6 +33,7 @@ function Recipe(props) {
       </div>
       <div >
         <h4>Instructions</h4>
+        {/* <p>{details.summary}</p> */}
         <p dangerouslySetInnerHTML={{__html: details?.summary}}></p>
         <p dangerouslySetInnerHTML={{__html: details?.instructions}}></p>
         <div>
