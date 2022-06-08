@@ -1,14 +1,16 @@
 # Fruits - Express App
 
+## Web
+
+Client - (Request - Always Str) -> Server
+Server - (Response - Always Str) -> Client
+
 ## REST - representational state transfer
 
 URL Design System
 
-```js
-app.get("/people/simon", (req, res) => {
-    // do whatever
-} )
-```
+GET - Type Browser URL
+POST - Form, method=POST
 
 Index URL: /fruits/ (GET)
 See: All the fruits
@@ -19,7 +21,7 @@ See: Specific fruit
 URL: /fruits/new (GET)
 See: Form to upload
 
-URL: /fruits (POST)
+Create URL: /fruits (POST)
 Do: uploads the fruit
 
 URL: /fruits/:id/edit (GET)

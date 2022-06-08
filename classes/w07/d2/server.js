@@ -7,9 +7,15 @@ const fruits = require("./models/fruits");
 const app = express();
 const PORT = process.env.PORT || 3000;
 
+//? MIDDLEWARE
+app.use(express.urlencoded({ extended: false }));
+
 //? ROUTES
 app.get("/", (req, res) => {
-    res.send("<h2>Hello World<p></h2></p>")
+  //? ?name=simon -> { name: "simon" }
+  console.log("query", req.query);
+    // res.send("<h2>Hello World<p></h2></p>")
+    res.render("form.ejs")
 });
 
 //? index
@@ -29,6 +35,19 @@ app.get("/fruits/:id", (req, res) => {
 // </body>
 // </html>
 // `);
+});
+
+//? create
+app.post("/fruits", (req, res) => {
+  if (req.body.readyToEat === "on") {
+    // if checked, req.body.readyToEat is set to 'on'
+    req.body.readyToEat = true;
+  } else {
+    // if not checked, req.body.readyToEat is undefined
+    req.body.readyToEat = false;
+  }
+  fruits.push(req.body);
+  res.send(req.body);
 });
 
 //? LISTEN
