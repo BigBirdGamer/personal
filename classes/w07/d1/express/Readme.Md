@@ -11,3 +11,7 @@ no spaces in the .env folder
 require('dotenv').config() ("Import")
 const port = process.env.PORT || 3   000; 
 
+## Steps to setup express
+npm init
+npm i express  / npm intsall express
+npm install nodemon -g
