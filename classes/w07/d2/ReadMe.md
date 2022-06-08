@@ -33,7 +33,7 @@ See: Delete your fruit
 
 ## Unit 3 Stages
 
-1. Express + EJS
+1. Express + EJS (Template Engine)
 2. Express + EJS + Mongodb (data)
 3. Express + React + Mongodb
 
